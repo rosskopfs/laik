@@ -17,9 +17,14 @@ if not os.path.isfile(ipath + "/mosquitto.h"):
     print("Mosquitto include file not found. MQTT disabled.")
     print("On Ubuntu, install 'libmosquitto-dev' or 'libmosquitto0-dev' (trusty).")
 else:
-    print("Mosquitto header found in " + ipath + ", enabled MQTT support.")
-    defs += " -DUSE_MQTT"
-    subdirs += " external/MQTT"
+    # we use protobuf in MQTT messages
+    if not os.path.isfile(ipath + "/protobuf-c/protobuf-c.h"):
+        print("Protobuf C include file not found. MQTT disabled.")
+        print("On Ubuntu, install 'libprotobuf-c-dev'.")
+    else:
+        print("Mosquitto/Protobuf header found in " + ipath + ", enabled MQTT support.")
+        defs += " -DUSE_MQTT"
+        subdirs += " external/MQTT"
 
 # LAIK-internal MPI support
 if not os.path.isfile(ipath + "/mpi/mpi.h"):
