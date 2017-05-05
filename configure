@@ -20,7 +20,7 @@ else:
     # we use protobuf in MQTT messages
     if not os.path.isfile(ipath + "/protobuf-c/protobuf-c.h"):
         print("Protobuf C include file not found. MQTT disabled.")
-        print("On Ubuntu, install 'libprotobuf-c-dev'.")
+        print("On Ubuntu, install 'libprotobuf-c-dev' or 'libprotobuf-c0-dev' (trusty).")
     else:
         print("Mosquitto/Protobuf header found in " + ipath + ", enabled MQTT support.")
         defs += " -DUSE_MQTT"
