@@ -15,7 +15,7 @@ ipath = "/usr/include"
 # Mosquitto/MQTT
 if not os.path.isfile(ipath + "/mosquitto.h"):
     print("Mosquitto include file not found. MQTT disabled.")
-    print("On Ubuntu, install 'libmosquitto-dev'.")
+    print("On Ubuntu, install 'libmosquitto-dev' or 'libmosquitto0-dev' (trusty).")
 else:
     print("Mosquitto header found in " + ipath + ", enabled MQTT support.")
     defs += " -DUSE_MQTT"
