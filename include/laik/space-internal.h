@@ -95,6 +95,10 @@ void clearBorderArray(Laik_BorderArray* a);
 
 // internal to allow for more irregular partitionings
 
+
+// How many data objects a partitioning can be maximally used for
+#define PARTITIONING_USED_ON_MAX 10
+
 struct _Laik_Partitioning {
     char* name; // for debugging
     int id;     // for debugging
@@ -118,6 +122,10 @@ struct _Laik_Partitioning {
     Laik_BorderArray* borders;
 
     Laik_Partitioning* next; // for list of partitionings same space
+    
+    // which data objects use this partitioning
+    int usedOnCount;
+    Laik_Data* usedOn[PARTITIONING_USED_ON_MAX];
 };
 
 #define TRANSSLICES_MAX 10

@@ -302,6 +302,38 @@ void initMaps(Laik_Transition* t, Laik_MappingList* toList)
     }
 }
 
+void insertUsedOn(Laik_Data* d, Laik_Partitioning* p)
+{
+    //TODO: Real error handling
+    assert(p->usedOnCount < PARTITIONING_USED_ON_MAX);
+    for(int i = 0; i < PARTITIONING_USED_ON_MAX; i++)
+        if(!p->usedOn[i])
+        {
+            p->usedOn[i] = d;
+            p->usedOnCount++;
+            return;
+        }
+    
+    //Found no free space, should not happen, again real error handling
+    assert(false);
+}
+
+void deleteUsedOn(Laik_Data* d, Laik_Partitioning* p)
+{
+    //TODO: Real error handling
+    assert(p->usedOnCount < PARTITIONING_USED_ON_MAX);
+    for(int i = 0; i < PARTITIONING_USED_ON_MAX; i++)
+        if(p->usedOn[i] == d)
+        {
+            p->usedOn[i] = NULL;
+            p->usedOnCount--;
+            return;
+        }
+    
+    //partitioning was not used on this data, erro
+    assert(false);
+}
+
 
 // set and enforce partitioning
 void laik_set_partitioning(Laik_Data* d, Laik_Partitioning* p)
@@ -329,11 +361,20 @@ void laik_set_partitioning(Laik_Data* d, Laik_Partitioning* p)
     if (t->initCount > 0)
         initMaps(t, toList);
 
+    
+
     // free old mapping/partitioning
     if (fromList)
         freeMaps(fromList);
     if (d->activePartitioning)
+    {
+        // Mark that old partitioning is no longer used on data
+        deleteUsedOn(d, d->activePartitioning);
         laik_free_partitioning(d->activePartitioning);
+    }
+    
+    // Mark new partitioning as active on this data
+    insertUsedOn(d, p);
 
     // set new mapping/partitioning active
     d->activePartitioning = p;

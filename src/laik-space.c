@@ -530,6 +530,9 @@ Laik_Partitioning* laik_new_partitioning(Laik_Space* s)
 
     p->bordersValid = false;
     p->borders = 0;
+    
+    p->usedOnCount = 0;
+    memset(p->usedOn, 0, sizeof(Laik_Data*)*PARTITIONING_USED_ON_MAX);
 
     return p;
 }
