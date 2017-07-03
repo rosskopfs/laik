@@ -14,9 +14,13 @@
 // forward decl
 void laik_single_execTransition(Laik_Data* d, Laik_Transition* t,
                                 Laik_MappingList* fromList, Laik_MappingList* toList);
+void laik_single_gatherInts(int send, int* recv);
+void laik_single_switchOffNodes(int* failing, int id);
 
 static Laik_Backend laik_backend_single = {"Single Task Backend", 0,
-                                           laik_single_execTransition };
+                                           laik_single_execTransition,
+                                           laik_single_gatherInts,
+                                           laik_single_switchOffNodes };
 static Laik_Instance* single_instance = 0;
 
 Laik_Instance* laik_init_single()
@@ -84,3 +88,15 @@ void laik_single_execTransition(Laik_Data* d, Laik_Transition* t,
     assert(t->recvCount == 0);
     assert(t->sendCount == 0);
 }
+
+void laik_single_gatherInts(int send, int* recv)
+{
+    //Only one task
+    recv[0] = send;
+}
+void laik_single_switchOffNodes(int* failing, int id)
+{
+    //Must not be called, as only a single task exists
+    assert(false);
+}
+
