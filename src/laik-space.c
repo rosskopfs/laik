@@ -527,6 +527,9 @@ Laik_Partitioning* laik_new_partitioning(Laik_Space* s)
 
     p->partitioner = 0;
     p->base = 0;
+    
+    p->excluded_tasks = NULL;
+    p->n_excluded_tasks = 0;
 
     p->bordersValid = false;
     p->borders = 0;
@@ -1054,6 +1057,22 @@ void laik_set_cycle_count(Laik_Partitioning* p, int cycles)
     p->bordersValid = false;
 }
 
+int isExcluded(int t, Laik_Partitioning* p){
+    int i = 0;
+    for(i=0; i<p->n_excluded_tasks; i++){
+        if(p->excluded_tasks[i]->rank == t){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int nextIncluded(int t, Laik_Partitioning* p){
+    while(isExcluded(t, p))
+      t++;
+    return t;
+}
+
 void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
 {
     Laik_BlockPartitioner* bp = (Laik_BlockPartitioner*) pr;
@@ -1067,6 +1086,7 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
     setIndex(&(slc.to), s->size[0], s->size[1], s->size[2]);
 
     int count = p->group->size;
+    int activeCount = count - p->n_excluded_tasks;
     int pdim = p->pdim;
     uint64_t size = s->size[pdim];
 
@@ -1095,10 +1115,10 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
     }
     else {
         // without task weighting function, use weight 1 for every task
-        totalTW = (double) count;
+        totalTW = (double) activeCount;
     }
 
-    double perPart = totalW / count / bp->cycles;
+    double perPart = totalW / activeCount / bp->cycles;
     double w = -0.5;
     int task = 0;
     int cycle = 0;
@@ -1107,7 +1127,7 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
     double taskW;
     if (bp->getTaskW)
         taskW = (bp->getTaskW)(task, bp->taskUserData)
-                * ((double) count) / totalTW;
+                * ((double) activeCount) / totalTW;
     else
         taskW = 1.0;
 
@@ -1122,11 +1142,11 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
 
         while (w >= perPart * taskW) {
             w = w - (perPart * taskW);
-            if ((task+1 == count) && (cycle+1 == bp->cycles)) break;
+            if ((nextIncluded(task+1, p) == count) && (cycle+1 == bp->cycles)) break;
             slc.to.i[pdim] = i;
             if (slc.from.i[pdim] < slc.to.i[pdim])
                 appendSlice(ba, task, &slc);
-            task++;
+            task = nextIncluded(task+1, p);
             if (task == count) {
                 task = 0;
                 cycle++;
@@ -1141,9 +1161,9 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
             // start new slice
             slc.from.i[pdim] = i;
         }
-        if ((task+1 == count) && (cycle+1 == bp->cycles)) break;
+        if ((nextIncluded(task+1, p) == count) && (cycle+1 == bp->cycles)) break;
     }
-    assert((task+1 == count) && (cycle+1 == bp->cycles));
+    assert((nextIncluded(task+1, p)== count) && (cycle+1 == bp->cycles));
     slc.to.i[pdim] = size;
     appendSlice(ba, task, &slc);
 }

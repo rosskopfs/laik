@@ -113,6 +113,10 @@ struct _Laik_Partitioning {
     Laik_ReductionOperation redOp;
 
     Laik_Partitioner* partitioner;
+    
+    // for failed nodes, maybe move to partioner?
+    Laik_Task** excluded_tasks;
+    int n_excluded_tasks;
 
     // coupling to another partitioning (potentially other space)
     Laik_Partitioning* base;
