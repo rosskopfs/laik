@@ -138,9 +138,9 @@ void laik_mpi_execTransition(Laik_Data* d, Laik_Transition* t,
             else if (d->type == laik_Float) mpiDateType = MPI_FLOAT;
             else assert(0);
 
-            laik_log(1, "MPI Reduce: "
+            laik_log(1, "MPI Reduce (data '%s'): "
                         "from %lu, to %lu, elemsize %d, base from/to %p/%p\n",
-                     from, to, d->elemsize, fromBase, toBase);
+                     d->name, from, to, d->elemsize, fromBase, toBase);
 
             if (op->rootTask == -1) {
                 MPI_Allreduce(fromBase, toBase, to - from,
@@ -197,9 +197,9 @@ void laik_mpi_execTransition(Laik_Data* d, Laik_Transition* t,
             default: assert(0);
             }
 
-            laik_log(1, "MPI Recv from T%d: "
+            laik_log(1, "MPI Recv (data '%s') from T%d: "
                         "local [%lu-%lu], elemsize %d, to base %p\n",
-                     op->fromTask, from, to-1, d->elemsize, toBase);
+                     d->name, op->fromTask, from, to-1, d->elemsize, toBase);
 
             MPI_Status s;
             // TODO:
@@ -226,6 +226,7 @@ void laik_mpi_execTransition(Laik_Data* d, Laik_Transition* t,
             // from global to sender-local indexes
             uint64_t from = op->slc.from.i[0] - fromMap->baseIdx.i[0];
             uint64_t to   = op->slc.to.i[0] - fromMap->baseIdx.i[0];
+            
             assert(fromBase != 0);
 
             MPI_Datatype mpiDateType;
@@ -234,9 +235,9 @@ void laik_mpi_execTransition(Laik_Data* d, Laik_Transition* t,
             default: assert(0);
             }
 
-            laik_log(1, "MPI Send to T%d: "
+            laik_log(1, "MPI Send (data '%s') to T%d: "
                         "local [%lu-%lu], elemsize %d, from base %p\n",
-                     op->toTask, from, to-1, d->elemsize, fromBase);
+                     d->name, op->toTask, from, to-1, d->elemsize, fromBase);
 
             // TODO: tag 1 may conflict with application
             MPI_Send(fromBase + from * d->elemsize, to - from,
@@ -259,9 +260,14 @@ void laik_mpi_switchOffNodes(int* failing, int id)
 {
     MPI_Comm comm = ((MPIData*)mpi_instance->backend_data)->comm;
     MPI_Comm new_comm;
+    
+    MPI_Barrier(comm);
+    
     MPI_Comm_split(comm, failing[id] ? MPI_UNDEFINED : 0, id, &new_comm);
-        
+    
+    
     ((MPIData*)mpi_instance->backend_data)->comm = new_comm;
+    
     
     //Goodbye cruel world
     if(failing[id])

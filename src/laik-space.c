@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <string.h>
 
+    #include <unistd.h>
+
 // counter for space ID, just for debugging
 static int space_id = 0;
 
@@ -633,6 +635,43 @@ laik_new_spacecoupled_partitioning(Laik_Partitioning* base,
     return p;
 }
 
+Laik_Partitioning*
+laik_clone_partitioning(const Laik_Partitioning* from){
+    Laik_Partitioning* p = (Laik_Partitioning*) 
+        malloc (sizeof(Laik_Partitioning));
+    p->id = part_id++;
+    p->name = strdup("partng-0     ");
+    sprintf(p->name, "partng-%d", p->id);
+
+    p->group = from->group;;
+    p->space = from->space;
+    p->pdim = from->pdim;
+    p->next = from->space->first_partitioning;
+    p->space->first_partitioning = p;
+
+    p->flow = from->flow;
+    p->type = from->type;
+    p->copyIn = from->copyIn;
+    p->copyOut = from->copyOut;
+    p->redOp = from->redOp;
+
+    p->partitioner = malloc(from->partitioner->size);
+    memcpy(p->partitioner, from->partitioner, from->partitioner->size);
+    p->partitioner->partitioning = p;
+    p->base = NULL;
+    
+    p->excluded_tasks = NULL;
+    p->n_excluded_tasks = 0;
+
+    p->bordersValid = false;
+    p->borders = 0;
+    
+    p->usedOnCount = from->usedOnCount;
+    memcpy(p->usedOn, from->usedOn, sizeof(Laik_Data*)*PARTITIONING_USED_ON_MAX);
+        
+    return p;
+}
+
 // free a partitioning with related resources
 void laik_free_partitioning(Laik_Partitioning* p)
 {
@@ -830,6 +869,9 @@ Laik_Transition* laik_calc_transitionP(Laik_Partitioning* from,
 
     Laik_BorderArray* fromBA = from ? from->borders : 0;
     Laik_BorderArray* toBA = to ? to->borders : 0;
+    
+    if (from) assert(from->bordersValid);
+    if (to) assert(to->bordersValid);
 
     // init values as next phase does a reduction?
     if ((to != 0) && laik_is_reduction(to->flow)) {
@@ -996,6 +1038,7 @@ void laik_couple_nested(Laik_Space* outer, Laik_Space* inner)
 
 // forward decl
 void runBlockPartitioner(Laik_Partitioner* bp, Laik_BorderArray* ba);
+void runIncrementalPartitioner(Laik_Partitioner* bp, Laik_BorderArray* ba);
 
 Laik_Partitioner* laik_newBlockPartitioner(Laik_Partitioning* p)
 {
@@ -1005,6 +1048,7 @@ Laik_Partitioner* laik_newBlockPartitioner(Laik_Partitioning* p)
     bp->base.type = LAIK_PT_Block;
     bp->base.partitioning = p;
     bp->base.run = runBlockPartitioner;
+    bp->base.size = sizeof(Laik_BlockPartitioner);
 
     bp->cycles = 1;
     bp->getIdxW = 0;
@@ -1012,6 +1056,26 @@ Laik_Partitioner* laik_newBlockPartitioner(Laik_Partitioning* p)
     bp->getTaskW = 0;
     bp->taskUserData = 0;
 }
+
+Laik_Partitioner* laik_newIncrementalPartitioner(Laik_Partitioning* p)
+{
+    Laik_IncrementalPartitioner* ip;
+    ip = (Laik_IncrementalPartitioner*) malloc(sizeof(Laik_IncrementalPartitioner));
+
+    ip->base.type = LAIK_PT_Block;
+    ip->base.partitioning = p;
+    ip->base.run = runIncrementalPartitioner;
+    ip->base.size = sizeof(Laik_IncrementalPartitioner);
+
+    ip->cycles = 1;
+    ip->getIdxW = 0;
+    ip->idxUserData = 0;
+    ip->getTaskW = 0;
+    ip->taskUserData = 0;
+    
+    ip->prev = p->borders;
+}
+
 
 void laik_set_index_weight(Laik_Partitioning* p, Laik_GetIdxWeight_t f,
                            void* userData)
@@ -1068,9 +1132,11 @@ int isExcluded(int t, Laik_Partitioning* p){
 }
 
 int nextIncluded(int t, Laik_Partitioning* p){
-    while(isExcluded(t, p))
-      t++;
-    return t;
+    int ret = t;
+    while(isExcluded(ret, p))
+      ret++;
+      
+    return ret;
 }
 
 void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
@@ -1110,7 +1176,7 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
     if (bp->getTaskW) {
         // task-wise weighting
         totalTW = 0.0;
-        for(int task = 0; task < count; task++)
+        for(int task = 0; task < activeCount; task++)
             totalTW += (bp->getTaskW)(task, bp->taskUserData);
     }
     else {
@@ -1124,6 +1190,7 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
     int cycle = 0;
 
     // taskW is a correction factor, which is 1.0 without task weights
+    // TODO: Move into loop?
     double taskW;
     if (bp->getTaskW)
         taskW = (bp->getTaskW)(task, bp->taskUserData)
@@ -1142,19 +1209,27 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
 
         while (w >= perPart * taskW) {
             w = w - (perPart * taskW);
+            
             if ((nextIncluded(task+1, p) == count) && (cycle+1 == bp->cycles)) break;
             slc.to.i[pdim] = i;
             if (slc.from.i[pdim] < slc.to.i[pdim])
                 appendSlice(ba, task, &slc);
-            task = nextIncluded(task+1, p);
+            task++;
+            while(isExcluded(task, p)){
+                setIndex(&(slc.from), 0, 0, 0);
+                setIndex(&(slc.to), 0, 0, 0);
+                appendSlice(ba, task, &slc);
+                task++;
+            }
+            
             if (task == count) {
-                task = 0;
+                task = nextIncluded(0, p);
                 cycle++;
             }
             // update taskW
             if (bp->getTaskW)
                 taskW = (bp->getTaskW)(task, bp->taskUserData)
-                        * ((double) count) / totalTW;
+                        * ((double) activeCount) / totalTW;
             else
                 taskW = 1.0;
 
@@ -1163,8 +1238,158 @@ void runBlockPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
         }
         if ((nextIncluded(task+1, p) == count) && (cycle+1 == bp->cycles)) break;
     }
-    assert((nextIncluded(task+1, p)== count) && (cycle+1 == bp->cycles));
+    assert(nextIncluded(task+1, p) == count);
+    assert(cycle+1 == bp->cycles);
     slc.to.i[pdim] = size;
     appendSlice(ba, task, &slc);
+    
+    if (laik_myid(p->group) ==1) {
+        laik_log(2, "TEST: \n");
+        
+        int num_borders = ba->count;
+        for(int i = 0; i < num_borders; i++)
+        {
+            laik_log(2, "Border %i(for %i): %i %i\n", i,
+                ba->tslice[i].task,
+                ba->tslice[i].s.from.i[0],
+                ba->tslice[i].s	.to.i[0]);
+        }
+    }
+}
+
+void runIncrementalPartitioner(Laik_Partitioner* pr, Laik_BorderArray* ba)
+{
+    Laik_IncrementalPartitioner* ip = (Laik_IncrementalPartitioner*) pr;
+    // If no previous borders given, just do a fresh block partitioning
+    if(!ip->prev)
+        runBlockPartitioner(pr, ba);
+    
+    Laik_Partitioning* p = ip->base.partitioning;
+    assert(p->borders != 0);
+    assert(p->type == LAIK_PT_Block);
+    
+    Laik_Space* s = p->space;
+    Laik_Slice slc;
+    setIndex(&(slc.from), 0, 0, 0);
+    setIndex(&(slc.to), s->size[0], s->size[1], s->size[2]);
+    
+    int count = p->group->size;
+    int activeCount = count - p->n_excluded_tasks;
+    int pdim = p->pdim;
+    uint64_t size = s->size[pdim];
+
+    
+    // Compute total weight to be redistirbuted, create border array of all 
+    // slices to be freed
+    Laik_BorderArray* fba = allocBorders(ba->tasks, ba->capacity);
+    
+    Laik_Index idx;
+    double totalW = 0.0;
+    setIndex(&idx, 0, 0, 0);
+    for(int sliceNum = 0; sliceNum < ba->count; sliceNum++)
+    {
+        // If this slice is one to be redistributed
+        if(isExcluded(ba->tslice[sliceNum].task, p))
+        {
+            appendSlice(fba, ba->tslice[sliceNum].task, &ba->tslice[sliceNum].s);
+            for(int i = ba->tslice[sliceNum].s.from.i[pdim]; 
+                i < ba->tslice[sliceNum].s.to.i[pdim]; i++)
+            {
+                // Only use index weithitng here. Task weighting is done 
+                // on redistribution
+                if (ip->getIdxW)
+                {
+                    idx.i[pdim] = i;
+                    totalW += (ip->getIdxW)(&idx, ip->idxUserData);
+                }
+                else
+                {
+                    totalW += 1;
+                }
+            }
+        }
+    }
+    sortBorderArray(fba);
+    
+    // Compute total task weigth on still remaining tasks
+     double totalTW = 0.0;
+    if (ip->getTaskW) {
+        // task-wise weighting
+        totalTW = 0.0;
+        for(int task = 0; task < count; task++)
+            if(!isExcluded(task, p))
+                totalTW += (ip->getTaskW)(task, ip->taskUserData);
+    }
+    else {
+        // without task weighting function, use weight 1 for every task
+        totalTW = (double) activeCount;
+    }
+    
+    // Walk over to be free slices, distribute them on still running tasks
+    double perPart = totalW / activeCount;
+    double w = -0.5;
+    int task = 0;
+    
+    // taskW is a correction factor, which is 1.0 without task weights
+    // TODO: Move into loop?
+    double taskW;
+    if (ip->getTaskW)
+        taskW = (ip->getTaskW)(task, ip->taskUserData)
+                * ((double) activeCount) / totalTW;
+    else
+        taskW = 1.0;
+       
+    uint64_t start = fba->tslice[0].s.from.i[pdim];
+    // Iterate over the entire memory to be redistributed
+    for(int sliceNum = 0; sliceNum < fba->count; sliceNum++)
+    {
+        slc.from.i[pdim] = fba->tslice[sliceNum].s.from.i[pdim];
+        for(uint64_t i = fba->tslice[sliceNum].s.from.i[pdim];
+            i < fba->tslice[sliceNum].s.to.i[pdim]; i++)
+        {
+            // At weigth for this element
+            if (ip->getIdxW) {
+                idx.i[pdim] = i;
+                w += (ip->getIdxW)(&idx, ip->idxUserData);
+            }
+            else
+                w += 1.0;
+        
+            while (w >= perPart * taskW) {
+                w = w - (perPart * taskW);
+                
+                if (nextIncluded(task+1, p) == count) break;
+                slc.to.i[pdim] = i;
+                if (slc.from.i[pdim] < slc.to.i[pdim])
+                    appendSlice(ba, task, &slc);
+                task++;
+                while(isExcluded(task, p)){
+                    task++;
+                    setIndex(&(slc.from), 0, 0, 0);
+                    setIndex(&(slc.to), 0, 0, 0);
+                    appendSlice(ba, task, &slc);
+                }
+                
+                // update taskW
+                if (ip->getTaskW)
+                    taskW = (ip->getTaskW)(task, ip->taskUserData)
+                            * ((double) activeCount) / totalTW;
+                else
+                    taskW = 1.0;
+
+                // start new slice
+                slc.from.i[pdim] = i;
+            }
+            if (nextIncluded(task+1, p) == count) break;
+                
+            assert(nextIncluded(task+1, p) == count);
+            slc.to.i[pdim] = size;
+            appendSlice(ba, task, &slc);
+        }
+        // Switching slice, so adding to current task
+        appendSlice(ba, task, &slc);
+    }
+       
+       
 }
 

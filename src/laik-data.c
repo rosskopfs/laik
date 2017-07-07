@@ -340,6 +340,7 @@ void laik_set_partitioning(Laik_Data* d, Laik_Partitioning* p)
 {
     // calculate borders (TODO: may need global communication)
     laik_update_partitioning(p);
+    if (d->activePartitioning) laik_update_partitioning(d->activePartitioning);
 
     // TODO: convert to realloc (with taking over layout)
     Laik_MappingList* fromList = d->activeMappings;
@@ -352,7 +353,7 @@ void laik_set_partitioning(Laik_Data* d, Laik_Partitioning* p)
     // TODO: use async interface
     assert(p->space->inst->backend->execTransition);
     (p->space->inst->backend->execTransition)(d, t, fromList, toList);
-
+    
     // local copy action
     if (t->localCount > 0)
         copyMaps(t, toList, fromList);
@@ -455,7 +456,6 @@ Laik_Mapping* laik_map(Laik_Data* d, int n, Laik_Layout* layout)
         laik_set_new_partitioning(d,
                                   d->defaultPartitionType,
                                   d->defaultFlow);
-
     p = d->activePartitioning;
 
     // lazy allocation
@@ -479,6 +479,12 @@ Laik_Mapping* laik_map_def(Laik_Data* d, int n, void** base, uint64_t* count)
 
     if (base) *base = m ? m->base : 0;
     if (count) *count = m ? m->count : 0;
+    
+    for(int i = 0; i < m->count; i++)
+        {
+            laik_log(2, "map_def (data %s) base: %p %i: %lf\n", d->name, m->base, i, *((double*)m->base + i));
+        }
+    
     return m;
 }
 
@@ -495,6 +501,13 @@ Laik_Mapping* laik_map_def1(Laik_Data* d, void** base, uint64_t* count)
 
     if (base) *base = m ? m->base : 0;
     if (count) *count = m ? m->count : 0;
+    
+    if(m)
+    for(int i = 0; i < m->count; i++)
+        {
+            laik_log(2, "map_def1 (data %s) base: %p %i: %lf\n", d->name, m->base, i, *((double*)m->base + i));
+        }
+        
     return m;
 }
 

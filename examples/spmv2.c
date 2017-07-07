@@ -19,12 +19,14 @@
  */
 
 #include "laik.h"
+#include "laik-internal.h"
 
 #ifdef USE_MPI
 #include "laik-backend-mpi.h"
 #else
 #include "laik-backend-single.h"
 #endif
+#include "laik/ext-mqtt.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,7 +88,6 @@ double getEW(Laik_Index* i, void* d)
     return (double) (m->row[ii + 1] - m->row[ii]);
 }
 
-
 //----------------------------------------------------------------------
 // main
 
@@ -113,6 +114,8 @@ int main(int argc, char* argv[])
     Laik_Instance* inst = laik_init_single();
 #endif
     Laik_Group* world = laik_world(inst);
+    
+    Laik_RepartitionControl* repartitioning = init_ext_mqtt(inst);
 
     // command line args: spmv [<maxiter> [<size>]] (def: spmv 10 10000)
     int maxiter = 0, size = 0;
@@ -152,8 +155,10 @@ int main(int argc, char* argv[])
     Laik_Space* s = laik_new_space_1d(inst, size);
     // LAIK container for result vector
     Laik_Data* resD = laik_alloc(world, s, laik_Double);
+    laik_set_data_name(resD, "res");
     // LAIK container for input vector
     Laik_Data* inpD = laik_alloc(world, s, laik_Double);
+    laik_set_data_name(inpD, "inp");
     // for global normalization, to broadcast a vector sum to all
     Laik_Data* sumD = laik_alloc_1d(world, laik_Double, 1);
 
@@ -181,10 +186,15 @@ int main(int argc, char* argv[])
     // do a sequence of SpMV, starting with v as input vector,
     // normalize result after each step to use as input for the next round
     for(int iter = 0; iter < maxiter; iter++) {
-
+        
+        
         // access to complete input vector (local indexing = global indexing)
         laik_set_new_partitioning(inpD, LAIK_PT_All, LAIK_DF_CopyIn_NoOut);
         laik_map_def1(inpD, (void**) &inp, 0);
+        
+        if(iter == 4)
+            for(int i = 0; i < size; i++)
+                laik_log(2, "%i: %lf\n", i, inp[i]);
 
         // SpMV operation, for my range of rows
 
@@ -198,9 +208,10 @@ int main(int argc, char* argv[])
 
             // my partition slice of result vector (local indexing, from 0)
             laik_map_def(resD, sNo, (void**) &res, &rcount);
-
+            
             fromRow = slc->from.i[0];
             toRow = slc->to.i[0];
+            
             for(int r = fromRow; r < toRow; r++) {
                 res[r - fromRow] = 0.0;
                 for(int o = m->row[r]; o < m->row[r+1]; o++)
@@ -242,7 +253,7 @@ int main(int argc, char* argv[])
         }
         else {
             // variant 2: broadcast written input values directly
-            laik_set_partitioning(inpD, p2);
+            laik_set_partitioning(inpD, p);
             // loop over all local slices of result and input vector
             for(int sNo = 0; laik_my_slice(p, sNo) != 0; sNo++) {
                 laik_map_def(resD, sNo, (void**) &res, &rcount);
@@ -252,7 +263,11 @@ int main(int argc, char* argv[])
         }
 
         // react on repartitioning wishes
-        //allowRepartitioning(p);
+        if(iter == 3)
+        {
+            repartitioning->allowRepartitioning(world);
+            laik_log(2, "Repartitioning done\n"); 
+        }
     }
 
     // push result to master

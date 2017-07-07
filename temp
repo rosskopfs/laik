@@ -1,0 +1,579 @@
+LAIK 1/3 - MPI backend initialized (location 'simon-ThinkPad-T460p')
+LAIK 1/3 - new 1d space 'space-0': [0-19]
+LAIK 1/3 - new 1d space 'space-1': [0-0]
+LAIK 0/3 - MPI backend initialized (location 'simon-ThinkPad-T460p')
+LAIK 0/3 - new 1d space 'space-0': [0-19]
+LAIK 0/3 - new 1d space 'space-1': [0-0]
+LAIK 0/3 - new 1d data 'data-2': elemsize 8, space 'space-1'
+LAIK 0/3 - new partitioning 'partng-0': type block, data flow copyout, group 0
+LAIK 2/3 - MPI backend initialized (location 'simon-ThinkPad-T460p')
+LAIK 2/3 - new 1d space 'space-0': [0-19]
+LAIK 2/3 - new 1d space 'space-1': [0-0]
+LAIK 2/3 - new 1d data 'data-2': elemsize 8, space 'space-1'
+LAIK 2/3 - new partitioning 'partng-0': type block, data flow copyout, group 0
+LAIK 1/3 - new 1d data 'data-2': elemsize 8, space 'space-1'
+LAIK 1/3 - new partitioning 'partng-0': type block, data flow copyout, group 0
+LAIK 1/3 - TEST: 
+LAIK 1/3 - Border 0(for 0): 0 11
+LAIK 1/3 - Border 1(for 1): 11 16
+LAIK 1/3 - Border 2(for 2): 16 20
+LAIK 1/3 - partitioning 'partng-0' (group 0) updated: 0:[0-10], 1:[11-15], 2:[16-19]
+LAIK 1/3 - new map for 'res'/0: [11+5, elemsize 8, base 0x55d30170c250
+LAIK 1/3 - transition (none) => partng-0: (nothing)
+LAIK 1/3 - new partitioning 'partng-2': type master, data flow copyout, group 0
+LAIK 1/3 - partitioning 'partng-2' (group 0) updated: 0:[0-19]
+LAIK 1/3 - transition (none) => partng-2: (nothing)
+LAIK 1/3 - new partitioning 'partng-3': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-3' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x55d30170df50
+LAIK 1/3 - transition partng-2 => partng-3:
+  recv: T0 => [0-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-19], elemsize 8, to base 0x55d30170df50
+LAIK 2/3 - partitioning 'partng-0' (group 0) updated: 0:[0-10], 1:[11-15], 2:[16-19]
+LAIK 2/3 - new map for 'res'/0: [16+4, elemsize 8, base 0x561ed70c6250
+LAIK 2/3 - transition (none) => partng-0: (nothing)
+LAIK 2/3 - new partitioning 'partng-2': type master, data flow copyout, group 0
+LAIK 2/3 - partitioning 'partng-2' (group 0) updated: 0:[0-19]
+LAIK 2/3 - transition (none) => partng-2: (nothing)
+LAIK 2/3 - new partitioning 'partng-3': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-3' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x561ed70c7f50
+LAIK 2/3 - transition partng-2 => partng-3:
+  recv: T0 => [0-19]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-19], elemsize 8, to base 0x561ed70c7f50
+LAIK 0/3 - partitioning 'partng-0' (group 0) updated: 0:[0-10], 1:[11-15], 2:[16-19]
+LAIK 0/3 - new map for 'res'/0: [0+11, elemsize 8, base 0x557c272a01f0
+LAIK 0/3 - transition (none) => partng-0: (nothing)
+LAIK 0/3 - new partitioning 'partng-2': type master, data flow copyout, group 0
+LAIK 0/3 - partitioning 'partng-2' (group 0) updated: 0:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272a1160
+LAIK 0/3 - transition (none) => partng-2: (nothing)
+LAIK 0/3 - new partitioning 'partng-3': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-3' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272a2050
+LAIK 0/3 - transition partng-2 => partng-3:
+  local: [0-19]
+  send: [0-19] => T1, [0-19] => T2
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-19], elemsize 8, from base 0x557c272a1160
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-19], elemsize 8, from base 0x557c272a1160
+LAIK 1/3 - new partitioning 'partng-4': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-4' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d30170efe0
+LAIK 1/3 - transition (none) => partng-4:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - new partitioning 'partng-5': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-5' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d30170fe40
+LAIK 1/3 - transition partng-4 => partng-5:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x55d30170efe0/0x55d30170fe40
+LAIK 2/3 - new partitioning 'partng-4': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-4' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70c8fe0
+LAIK 2/3 - transition (none) => partng-4:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - copy map for 'inp': 20 x 8 from [0 global [0 to [0, 0x557c272a1160 => 0x557c272a2050
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x557c272a1160)
+LAIK 0/3 - new partitioning 'partng-4': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-4' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272a11c0
+LAIK 0/3 - transition (none) => partng-4:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - new partitioning 'partng-5': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-5' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272a3f20
+LAIK 2/3 - new partitioning 'partng-5': type all, data flow copyin, group 0
+Sum at iter  0: 1330.000000
+LAIK 0/3 - transition partng-4 => partng-5:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557c272a11c0/0x557c272a3f20
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272a11c0)
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x557c272a4e90
+LAIK 0/3 - transition partng-3 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x557c272a2050)
+LAIK 0/3 - new partitioning 'partng-6': type all, data flow copyin, group 0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d30170efe0)
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x55d301710af0
+LAIK 1/3 - transition partng-3 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x55d30170df50)
+LAIK 1/3 - new partitioning 'partng-6': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-6' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x55d3017118a0
+LAIK 1/3 - transition partng-0 => partng-6:
+  local: [11-15]
+  send: [11-15] => T0, [11-15] => T2
+  recv: T0 => [0-10], T2 => [16-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x55d3017118a0
+LAIK 2/3 - partitioning 'partng-5' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70c9e40
+LAIK 2/3 - transition partng-4 => partng-5:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x561ed70c8fe0/0x561ed70c9e40
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70c8fe0)
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x561ed70caaf0
+LAIK 2/3 - transition partng-3 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x561ed70c7f50)
+LAIK 2/3 - new partitioning 'partng-6': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-6' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x561ed70cb8a0
+LAIK 2/3 - transition partng-0 => partng-6:
+  local: [16-19]
+  send: [16-19] => T0, [16-19] => T1
+  recv: T0 => [0-10], T1 => [11-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x561ed70cb8a0
+LAIK 0/3 - partitioning 'partng-6' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272a5c70
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [0-4], elemsize 8, from base 0x55d301710af0
+LAIK 1/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x55d3017118a0
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-4], elemsize 8, from base 0x55d301710af0
+LAIK 1/3 - copy map for 'inp': 5 x 8 from [0 global [11 to [11, 0x55d301710af0 => 0x55d3017118f8
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x55d301710af0)
+LAIK 1/3 - new partitioning 'partng-7': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-7' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d3017126d0
+LAIK 1/3 - transition partng-5 => partng-7:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d30170fe40)
+LAIK 1/3 - new partitioning 'partng-8': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-8' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d301713490
+LAIK 1/3 - transition partng-7 => partng-8:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x55d3017126d0/0x55d301713490
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x561ed70cb8a0
+LAIK 2/3 - MPI Send (data 'inp') to T1: local [0-3], elemsize 8, from base 0x561ed70caaf0
+LAIK 2/3 - MPI Send (data 'inp') to T0: local [0-3], elemsize 8, from base 0x561ed70caaf0
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [16, 0x561ed70caaf0 => 0x561ed70cb920
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x561ed70caaf0)
+LAIK 2/3 - new partitioning 'partng-7': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-7' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70cc6d0
+LAIK 2/3 - transition partng-5 => partng-7:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70c9e40)
+LAIK 2/3 - new partitioning 'partng-8': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-8' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70cd490
+LAIK 0/3 - transition partng-0 => partng-6:
+  local: [0-10]
+  send: [0-10] => T1, [0-10] => T2
+  recv: T1 => [11-15], T2 => [16-19]
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-10], elemsize 8, from base 0x557c272a4e90
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-10], elemsize 8, from base 0x557c272a4e90
+LAIK 0/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x557c272a5c70
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x557c272a5c70
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x557c272a4e90 => 0x557c272a5c70
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x557c272a4e90)
+LAIK 0/3 - new partitioning 'partng-7': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-7' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272a6b00
+LAIK 0/3 - transition partng-5 => partng-7:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272a3f20)
+LAIK 0/3 - new partitioning 'partng-8': type all, data flow copyin, group 0
+LAIK 2/3 - transition partng-7 => partng-8:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x561ed70cc6d0/0x561ed70cd490
+LAIK 0/3 - partitioning 'partng-8' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272a4ed0
+LAIK 0/3 - transition partng-7 => partng-8:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557c272a6b00/0x557c272a4ed0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272a6b00)
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x557c272a83e0
+LAIK 0/3 - transition partng-6 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x557c272a5c70)
+LAIK 0/3 - new partitioning 'partng-9': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-9' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272a91c0
+LAIK 0/3 - transition partng-0 => partng-9:
+  local: [0-10]
+  send: [0-10] => T1, [0-10] => T2
+  recv: T1 => [11-15], T2 => [16-19]
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-10], elemsize 8, from base 0x557c272a83e0
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-10], elemsize 8, from base 0x557c272a83e0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70cc6d0)
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x561ed70cdff0
+LAIK 2/3 - transition partng-6 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x561ed70cb8a0)
+LAIK 2/3 - new partitioning 'partng-9': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-9' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x561ed70ceda0
+LAIK 2/3 - transition partng-0 => partng-9:
+  local: [16-19]
+  send: [16-19] => T0, [16-19] => T1
+  recv: T0 => [0-10], T1 => [11-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x561ed70ceda0
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x561ed70ceda0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d3017126d0)
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x55d301713ff0
+LAIK 1/3 - transition partng-6 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x55d3017118a0)
+LAIK 1/3 - new partitioning 'partng-9': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-9' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x55d301714da0
+LAIK 1/3 - transition partng-0 => partng-9:
+  local: [11-15]
+  send: [11-15] => T0, [11-15] => T2
+  recv: T0 => [0-10], T2 => [16-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x55d301714da0
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [0-4], elemsize 8, from base 0x55d301713ff0
+LAIK 1/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x55d301714da0
+Sum at iter  1: 54.900000
+LAIK 0/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x557c272a91c0
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x557c272a91c0
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x557c272a83e0 => 0x557c272a91c0
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x557c272a83e0)
+LAIK 0/3 - new partitioning 'partng-10': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-10' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272a8400
+LAIK 0/3 - transition partng-8 => partng-10:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272a4ed0)
+LAIK 0/3 - new partitioning 'partng-11': type all, data flow copyin, group 0
+LAIK 2/3 - MPI Send (data 'inp') to T1: local [0-3], elemsize 8, from base 0x561ed70cdff0
+LAIK 2/3 - MPI Send (data 'inp') to T0: local [0-3], elemsize 8, from base 0x561ed70cdff0
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [16, 0x561ed70cdff0 => 0x561ed70cee20
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x561ed70cdff0)
+LAIK 2/3 - new partitioning 'partng-10': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-10' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70cfc30
+LAIK 2/3 - transition partng-8 => partng-10:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70cd490)
+LAIK 2/3 - new partitioning 'partng-11': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-11' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70d09f0
+LAIK 2/3 - transition partng-10 => partng-11:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x561ed70cfc30/0x561ed70d09f0
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-4], elemsize 8, from base 0x55d301713ff0
+LAIK 1/3 - copy map for 'inp': 5 x 8 from [0 global [11 to [11, 0x55d301713ff0 => 0x55d301714df8
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x55d301713ff0)
+LAIK 1/3 - new partitioning 'partng-10': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-10' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d301715c30
+LAIK 1/3 - transition partng-8 => partng-10:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d301713490)
+LAIK 1/3 - new partitioning 'partng-11': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-11' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d3017169f0
+LAIK 1/3 - transition partng-10 => partng-11:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x55d301715c30/0x55d3017169f0
+LAIK 0/3 - partitioning 'partng-11' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272aadd0
+LAIK 0/3 - transition partng-10 => partng-11:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557c272a8400/0x557c272aadd0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272a8400)
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x557c272ab930
+LAIK 0/3 - transition partng-9 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x557c272a91c0)
+LAIK 0/3 - new partitioning 'partng-12': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-12' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272ac710
+LAIK 0/3 - transition partng-0 => partng-12:
+  local: [0-10]
+  send: [0-10] => T1, [0-10] => T2
+  recv: T1 => [11-15], T2 => [16-19]
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-10], elemsize 8, from base 0x557c272ab930
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-10], elemsize 8, from base 0x557c272ab930
+LAIK 0/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x557c272ac710
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d301715c30)
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x55d301717550
+LAIK 1/3 - transition partng-9 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x55d301714da0)
+LAIK 1/3 - new partitioning 'partng-12': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-12' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x55d301718300
+LAIK 1/3 - transition partng-0 => partng-12:
+  local: [11-15]
+  send: [11-15] => T0, [11-15] => T2
+  recv: T0 => [0-10], T2 => [16-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x55d301718300
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [0-4], elemsize 8, from base 0x55d301717550
+LAIK 1/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x55d301718300
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70cfc30)
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x561ed70d1550
+LAIK 2/3 - transition partng-9 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x561ed70ceda0)
+LAIK 2/3 - new partitioning 'partng-12': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-12' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x561ed70d2300
+LAIK 2/3 - transition partng-0 => partng-12:
+  local: [16-19]
+  send: [16-19] => T0, [16-19] => T1
+  recv: T0 => [0-10], T1 => [11-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x561ed70d2300
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x561ed70d2300
+LAIK 2/3 - MPI Send (data 'inp') to T1: local [0-3], elemsize 8, from base 0x561ed70d1550
+LAIK 2/3 - MPI Send (data 'inp') to T0: local [0-3], elemsize 8, from base 0x561ed70d1550
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-4], elemsize 8, from base 0x55d301717550
+LAIK 1/3 - copy map for 'inp': 5 x 8 from [0 global [11 to [11, 0x55d301717550 => 0x55d301718358
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x55d301717550)
+LAIK 1/3 - new partitioning 'partng-13': type all, data flow sumout, group 0
+Sum at iter  2: 40.423107
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [16, 0x561ed70d1550 => 0x561ed70d2380
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x561ed70d1550)
+LAIK 2/3 - new partitioning 'partng-13': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-13' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70d3190
+LAIK 2/3 - transition partng-11 => partng-13:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70d09f0)
+LAIK 2/3 - new partitioning 'partng-14': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-14' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70d3f50
+LAIK 2/3 - transition partng-13 => partng-14:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x561ed70d3190/0x561ed70d3f50
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x561ed70d3190)
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x561ed70d4ab0
+LAIK 2/3 - transition partng-12 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x561ed70d2300)
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x557c272ac710
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x557c272ab930 => 0x557c272ac710
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x557c272ab930)
+LAIK 0/3 - new partitioning 'partng-13': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-13' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272ad5a0
+LAIK 0/3 - transition partng-11 => partng-13:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272aadd0)
+LAIK 0/3 - new partitioning 'partng-14': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-14' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272ab970
+LAIK 0/3 - transition partng-13 => partng-14:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557c272ad5a0/0x557c272ab970
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x557c272ad5a0)
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x557c272aee80
+LAIK 0/3 - transition partng-12 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x557c272ac710)
+LAIK 1/3 - partitioning 'partng-13' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d301719190
+LAIK 1/3 - transition partng-11 => partng-13:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d3017169f0)
+LAIK 1/3 - new partitioning 'partng-14': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-14' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x55d301719f50
+LAIK 1/3 - transition partng-13 => partng-14:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x55d301719190/0x55d301719f50
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x55d301719190)
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x55d30171aab0
+LAIK 1/3 - transition partng-12 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x55d301718300)
+Sum at iter  3: 30.497045
+LAIK 2/3 - partitioning 'partng-15' (group 0) updated: 0:[0-13], 1:(empty), 2:[14-19]
+LAIK 2/3 - new map for 'res'/0: [14+6, elemsize 8, base 0x561ed70d5930
+LAIK 2/3 - transition partng-0 => partng-15:
+  local: [16-19]
+  recv: T1 => [14-15]
+LAIK 2/3 - MPI Recv (data 'res') from T1: local [0-1], elemsize 8, to base 0x561ed70d5930
+LAIK 2/3 - copy map for 'res': 4 x 8 from [0 global [16 to [2, 0x561ed70c6250 => 0x561ed70d5940
+LAIK 2/3 - free map for 'res'/0 (count 4, base 0x561ed70c6250)
+LAIK 0/3 - BEFORE: 
+LAIK 0/3 - Border 0(for 0): 0 11
+LAIK 0/3 - Border 1(for 1): 11 16
+LAIK 0/3 - Border 2(for 2): 16 20
+LAIK 0/3 - partitioning 'partng-15' (group 0) updated: 0:[0-13], 1:(empty), 2:[14-19]
+LAIK 0/3 - new map for 'res'/0: [0+14, elemsize 8, base 0x557c272afd10
+LAIK 0/3 - transition partng-0 => partng-15:
+  local: [0-10]
+  recv: T1 => [11-13]
+LAIK 0/3 - MPI Recv (data 'res') from T1: local [11-13], elemsize 8, to base 0x557c272afd10
+LAIK 1/3 - TEST: 
+LAIK 1/3 - Border 0(for 0): 0 14
+LAIK 1/3 - Border 1(for 1): 0 0
+LAIK 1/3 - Border 2(for 2): 14 20
+LAIK 1/3 - partitioning 'partng-15' (group 0) updated: 0:[0-13], 1:(empty), 2:[14-19]
+LAIK 1/3 - new map for 'res'/0: [0+0, elemsize 8, base (nil)
+LAIK 1/3 - transition partng-0 => partng-15:
+  send: [11-13] => T0, [14-15] => T2
+LAIK 1/3 - MPI Send (data 'res') to T2: local [3-4], elemsize 8, from base 0x55d30170c250
+LAIK 1/3 - MPI Send (data 'res') to T0: local [0-2], elemsize 8, from base 0x55d30170c250
+LAIK 1/3 - free map for 'res'/0 (count 5, base 0x55d30170c250)
+LAIK 1/3 - new map for 'inp'/0: [0+0, elemsize 8, base (nil)
+LAIK 1/3 - transition partng-0 => partng-15:
+  send: [11-13] => T0, [14-15] => T2
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [3-4], elemsize 8, from base 0x55d30171aab0
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-2], elemsize 8, from base 0x55d30171aab0
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x55d30171aab0)
+LAIK 0/2 - DONE
+
+
+LAIK 2/3 - new map for 'inp'/0: [14+6, elemsize 8, base 0x561ed70d6490
+LAIK 2/3 - transition partng-0 => partng-15:
+  local: [16-19]
+  recv: T1 => [14-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [0-1], elemsize 8, to base 0x561ed70d6490
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [2, 0x561ed70d4ab0 => 0x561ed70d64a0
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x561ed70d4ab0)
+LAIK 1/2 - DONE
+
+
+LAIK 0/3 - copy map for 'res': 11 x 8 from [0 global [0 to [0, 0x557c272a01f0 => 0x557c272afd10
+LAIK 0/3 - free map for 'res'/0 (count 11, base 0x557c272a01f0)
+LAIK 0/3 - new map for 'inp'/0: [0+14, elemsize 8, base 0x557c272b08d0
+LAIK 0/3 - transition partng-0 => partng-15:
+  local: [0-10]
+  recv: T1 => [11-13]
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-13], elemsize 8, to base 0x557c272b08d0
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x557c272aee80 => 0x557c272b08d0
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x557c272aee80)
+LAIK 0/2 - DONE
+
+
+LAIK 1/2 - After backend
+LAIK 1/2 - Repartitioning done
+LAIK 1/2 - new partitioning 'partng-16': type all, data flow copyin, group 0
+LAIK 0/2 - After backend
+LAIK 0/2 - Repartitioning done
+LAIK 0/2 - new partitioning 'partng-16': type all, data flow copyin, group 0
+LAIK 1/2 - partitioning 'partng-16' (group 0) updated: 0:[0-19], 1:[0-19]
+LAIK 1/2 - new map for 'inp'/0: [0+20, elemsize 8, base 0x561ed70d9650
+LAIK 0/2 - partitioning 'partng-16' (group 0) updated: 0:[0-19], 1:[0-19]
+LAIK 0/2 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272b39b0
+LAIK 0/2 - transition partng-15 => partng-16:
+  local: [0-13]
+  send: [0-13] => T1
+LAIK 0/2 - MPI Send (data 'inp') to T1: local [0-13], elemsize 8, from base 0x557c272b08d0
+LAIK 0/2 - copy map for 'inp': 14 x 8 from [0 global [0 to [0, 0x557c272b08d0 => 0x557c272b39b0
+LAIK 0/2 - free map for 'inp'/0 (count 14, base 0x557c272b08d0)
+LAIK 0/2 - 0: 0.000000
+LAIK 0/2 - 1: 0.000000
+LAIK 0/2 - 2: 0.000000
+LAIK 0/2 - 3: 0.000000
+LAIK 0/2 - 4: 0.001033
+LAIK 0/2 - 5: 0.004374
+LAIK 1/2 - transition partng-15 => partng-16:
+  recv: T0 => [0-13]
+LAIK 1/2 - MPI Recv (data 'inp') from T0: local [0-13], elemsize 8, to base 0x561ed70d9650
+LAIK 1/2 - free map for 'inp'/0 (count 6, base 0x561ed70d6490)
+LAIK 1/2 - 0: 0.000000
+LAIK 1/2 - 1: 0.000000
+LAIK 1/2 - 2: 0.000000
+LAIK 1/2 - 3: 0.000000
+LAIK 1/2 - 4: 0.001033
+LAIK 1/2 - 5: 0.004374
+LAIK 1/2 - 6: 0.011018
+LAIK 1/2 - 7: 0.021398
+LAIK 1/2 - 8: 0.035268
+LAIK 0/2 - 6: 0.011018
+LAIK 0/2 - 7: 0.021398
+LAIK 0/2 - 8: 0.035268
+LAIK 0/2 - 9: 0.051730
+LAIK 0/2 - 10: 0.069354
+LAIK 0/2 - 11: 0.086360
+LAIK 0/2 - 12: 0.100838
+LAIK 0/2 - 13: 0.110960
+LAIK 0/2 - 14: 0.000000
+LAIK 0/2 - 15: 0.000000
+LAIK 0/2 - 16: 0.000000
+LAIK 0/2 - 17: 0.000000
+LAIK 0/2 - 18: 0.000000
+LAIK 0/2 - 19: 0.000000
+LAIK 0/2 - partitioning 'partng-0' (group 0) updated: 0:[0-13], 1:[14-19]
+LAIK 1/2 - 9: 0.051730
+LAIK 1/2 - 10: 0.069354
+LAIK 1/2 - 11: 0.086360
+LAIK 1/2 - 12: 0.100838
+LAIK 1/2 - 13: 0.110960
+LAIK 1/2 - 14: 0.000000
+LAIK 1/2 - 15: 0.000000
+LAIK 1/2 - 16: 0.000000
+LAIK 1/2 - 17: 0.000000
+LAIK 1/2 - 18: 0.000000
+LAIK 1/2 - 19: 0.000000
+LAIK 1/2 - TEST: 
+LAIK 1/2 - Border 0(for 0): 0 14
+LAIK 1/2 - Border 1(for 1): 14 20
+LAIK 1/2 - partitioning 'partng-0' (group 0) updated: 0:[0-13], 1:[14-19]
+LAIK 1/2 - TEST: 
+LAIK 0/2 - partitioning 'partng-15' (group 0) updated: 0:[0-13], 1:[14-19]
+LAIK 0/2 - new partitioning 'partng-17': type all, data flow sumout, group 0
+LAIK 0/2 - partitioning 'partng-17' (group 0) updated: 0:[0-0], 1:[0-0]
+LAIK 0/2 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272b2870
+LAIK 0/2 - transition partng-14 => partng-17:
+  init: sum[0-0]
+LAIK 0/2 - init map for 'data-2': 1 x at [0
+LAIK 0/2 - free map for 'data-2'/0 (count 1, base 0x557c272ab970)
+LAIK 0/2 - new partitioning 'partng-18': type all, data flow copyin, group 0
+LAIK 1/2 - Border 0(for 0): 0 14
+LAIK 1/2 - Border 1(for 1): 14 20
+LAIK 1/2 - partitioning 'partng-15' (group 0) updated: 0:[0-13], 1:[14-19]
+LAIK 1/2 - new partitioning 'partng-17': type all, data flow sumout, group 0
+LAIK 1/2 - partitioning 'partng-17' (group 0) updated: 0:[0-0], 1:[0-0]
+LAIK 1/2 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70d7010
+LAIK 1/2 - transition partng-14 => partng-17:
+  init: sum[0-0]
+LAIK 1/2 - init map for 'data-2': 1 x at [0
+LAIK 1/2 - free map for 'data-2'/0 (count 1, base 0x561ed70d3f50)
+LAIK 0/2 - partitioning 'partng-18' (group 0) updated: 0:[0-0], 1:[0-0]
+LAIK 0/2 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557c272b3200
+LAIK 0/2 - transition partng-17 => partng-18:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/2 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557c272b2870/0x557c272b3200
+LAIK 1/2 - new partitioning 'partng-18': type all, data flow copyin, group 0
+LAIK 1/2 - partitioning 'partng-18' (group 0) updated: 0:[0-0], 1:[0-0]
+LAIK 1/2 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x561ed70d7c40
+LAIK 1/2 - transition partng-17 => partng-18:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/2 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x561ed70d7010/0x561ed70d7c40
+LAIK 1/2 - free map for 'data-2'/0 (count 1, base 0x561ed70d7010)
+LAIK 1/2 - new map for 'inp'/0: [14+6, elemsize 8, base 0x561ed70d8e80
+LAIK 0/2 - free map for 'data-2'/0 (count 1, base 0x557c272b2870)
+LAIK 0/2 - new map for 'inp'/0: [0+14, elemsize 8, base 0x557c272b18b0
+LAIK 0/2 - transition partng-16 => partng-0: (nothing)
+LAIK 0/2 - free map for 'inp'/0 (count 20, base 0x557c272b39b0)
+LAIK 0/2 - new partitioning 'partng-19': type master, data flow copyin, group 0
+LAIK 0/2 - partitioning 'partng-19' (group 0) updated: 0:[0-19]
+LAIK 1/2 - transition partng-16 => partng-0: (nothing)
+LAIK 1/2 - free map for 'inp'/0 (count 20, base 0x561ed70d9650)
+LAIK 1/2 - new partitioning 'partng-19': type master, data flow copyin, group 0
+LAIK 1/2 - partitioning 'partng-19' (group 0) updated: 0:[0-19]
+LAIK 1/2 - transition partng-0 => partng-19:
+  send: [14-19] => T0
+LAIK 1/2 - MPI Send (data 'inp') to T0: local [0-5], elemsize 8, from base 0x561ed70d8e80
+LAIK 1/2 - free map for 'inp'/0 (count 6, base 0x561ed70d8e80)
+LAIK 1/2 - new partitioning 'partng-20': type master, data flow copyin, group 0
+Sum at iter  4: 19.811262
+LAIK 0/2 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557c272b39b0
+LAIK 0/2 - transition partng-0 => partng-19:
+  local: [0-13]
+  recv: T1 => [14-19]
+LAIK 0/2 - MPI Recv (data 'inp') from T1: local [14-19], elemsize 8, to base 0x557c272b39b0
+LAIK 0/2 - copy map for 'inp': 14 x 8 from [0 global [0 to [0, 0x557c272b18b0 => 0x557c272b39b0
+LAIK 0/2 - free map for 'inp'/0 (count 14, base 0x557c272b18b0)
+LAIK 0/2 - new partitioning 'partng-20': type master, data flow copyin, group 0
+LAIK 0/2 - partitioning 'partng-20' (group 0) updated: 0:[0-19]
+LAIK 0/2 - new map for 'res'/0: [0+20, elemsize 8, base 0x557c272b79c0
+LAIK 1/2 - partitioning 'partng-20' (group 0) updated: 0:[0-19]
+LAIK 1/2 - transition partng-15 => partng-20:
+  send: [14-19] => T0
+LAIK 1/2 - MPI Send (data 'res') to T0: local [0-5], elemsize 8, from base 0x561ed70d5930
+LAIK 1/2 - free map for 'res'/0 (count 6, base 0x561ed70d5930)
+LAIK 0/2 - transition partng-15 => partng-20:
+  local: [0-13]
+  recv: T1 => [14-19]
+LAIK 0/2 - MPI Recv (data 'res') from T1: local [14-19], elemsize 8, to base 0x557c272b79c0
+LAIK 0/2 - copy map for 'res': 14 x 8 from [0 global [0 to [0, 0x557c272afd10 => 0x557c272b79c0
+LAIK 0/2 - free map for 'res'/0 (count 14, base 0x557c272afd10)
+Result sum: 19.811262 (should be same as last iter sum)
+Input sum: 1.000000 (should be 1.0)

@@ -1,0 +1,967 @@
+LAIK 0/3 - MPI backend initialized (location 'simon-ThinkPad-T460p')
+LAIK 0/3 - new 1d space 'space-0': [0-19]
+LAIK 0/3 - new 1d space 'space-1': [0-0]
+LAIK 0/3 - new 1d data 'data-2': elemsize 8, space 'space-1'
+LAIK 1/3 - MPI backend initialized (location 'simon-ThinkPad-T460p')
+LAIK 1/3 - new 1d space 'space-0': [0-19]
+LAIK 1/3 - new 1d space 'space-1': [0-0]
+LAIK 1/3 - new 1d data 'data-2': elemsize 8, space 'space-1'
+LAIK 1/3 - new partitioning 'partng-0': type block, data flow copyout, group 0
+LAIK 1/3 - TEST: 
+LAIK 1/3 - Border 0(for 0): 0 11
+LAIK 1/3 - Border 1(for 1): 11 16
+LAIK 1/3 - Border 2(for 2): 16 20
+LAIK 2/3 - MPI backend initialized (location 'simon-ThinkPad-T460p')
+LAIK 2/3 - new 1d space 'space-0': [0-19]
+LAIK 2/3 - new 1d space 'space-1': [0-0]
+LAIK 2/3 - new 1d data 'data-2': elemsize 8, space 'space-1'
+LAIK 2/3 - new partitioning 'partng-0': type block, data flow copyout, group 0
+LAIK 2/3 - partitioning 'partng-0' (group 0) updated: 0:[0-10], 1:[11-15], 2:[16-19]
+LAIK 0/3 - new partitioning 'partng-0': type block, data flow copyout, group 0
+LAIK 0/3 - partitioning 'partng-0' (group 0) updated: 0:[0-10], 1:[11-15], 2:[16-19]
+LAIK 0/3 - new map for 'res'/0: [0+11, elemsize 8, base 0x555b74519200
+LAIK 0/3 - transition (none) => partng-0: (nothing)
+LAIK 0/3 - new partitioning 'partng-2': type master, data flow copyout, group 0
+LAIK 0/3 - partitioning 'partng-2' (group 0) updated: 0:[0-19]
+LAIK 1/3 - partitioning 'partng-0' (group 0) updated: 0:[0-10], 1:[11-15], 2:[16-19]
+LAIK 1/3 - new map for 'res'/0: [11+5, elemsize 8, base 0x557627e511f0
+LAIK 1/3 - transition (none) => partng-0: (nothing)
+LAIK 1/3 - new partitioning 'partng-2': type master, data flow copyout, group 0
+LAIK 2/3 - new map for 'res'/0: [16+4, elemsize 8, base 0x562fa80e51f0
+LAIK 2/3 - transition (none) => partng-0: (nothing)
+LAIK 2/3 - new partitioning 'partng-2': type master, data flow copyout, group 0
+LAIK 2/3 - partitioning 'partng-2' (group 0) updated: 0:[0-19]
+LAIK 2/3 - transition (none) => partng-2: (nothing)
+LAIK 2/3 - new partitioning 'partng-3': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-3' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x562fa80e6ef0
+LAIK 2/3 - transition partng-2 => partng-3:
+  recv: T0 => [0-19]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-19], elemsize 8, to base 0x562fa80e6ef0
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 0: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 1: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 2: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 3: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 4: 1.000000
+LAIK 1/3 - partitioning 'partng-2' (group 0) updated: 0:[0-19]
+LAIK 1/3 - transition (none) => partng-2: (nothing)
+LAIK 1/3 - new partitioning 'partng-3': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-3' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557627e52ef0
+LAIK 1/3 - transition partng-2 => partng-3:
+  recv: T0 => [0-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-19], elemsize 8, to base 0x557627e52ef0
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 0: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 1: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 2: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 3: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 4: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 5: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 6: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 7: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 8: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 9: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 10: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 11: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 12: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 13: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 14: 1.000000
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x555b7451a170
+LAIK 0/3 - transition (none) => partng-2: (nothing)
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 0: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 1: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 2: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 3: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 4: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 5: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 6: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 7: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 8: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 9: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 10: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 11: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 12: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 13: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 14: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 15: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 16: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 17: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 18: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451a170 19: 0.000000
+LAIK 0/3 - new partitioning 'partng-3': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-3' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x555b7451b060
+LAIK 0/3 - transition partng-2 => partng-3:
+  local: [0-19]
+  send: [0-19] => T1, [0-19] => T2
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-19], elemsize 8, from base 0x555b7451a170
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-19], elemsize 8, from base 0x555b7451a170
+LAIK 0/3 - copy map for 'inp': 20 x 8 from [0 global [0 to [0, 0x555b7451a170 => 0x555b7451b060
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x555b7451a170)
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 0: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 1: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 2: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 3: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 4: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 5: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 6: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 7: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 8: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 9: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 10: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 11: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 12: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 13: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 14: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 15: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 16: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 17: 1.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 18: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 5: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 6: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 7: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 8: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 9: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 10: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 11: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 12: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 13: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 14: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 15: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 16: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 17: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 18: 1.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80e6ef0 19: 1.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 0.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 0.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 0.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 0.000000
+LAIK 2/3 - new partitioning 'partng-4': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-4' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80e7f80
+LAIK 2/3 - transition (none) => partng-4:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80e7f80 0: 0.000000
+LAIK 2/3 - new partitioning 'partng-5': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-5' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80e8de0
+LAIK 2/3 - transition partng-4 => partng-5:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x562fa80e7f80/0x562fa80e8de0
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451b060 19: 1.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 0.000000
+LAIK 0/3 - new partitioning 'partng-4': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-4' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b7451a1d0
+LAIK 0/3 - transition (none) => partng-4:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b7451a1d0 0: 0.000000
+LAIK 0/3 - new partitioning 'partng-5': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-5' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b7451cf30
+LAIK 0/3 - transition partng-4 => partng-5:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x555b7451a1d0/0x555b7451cf30
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 15: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 16: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 17: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 18: 1.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e52ef0 19: 1.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 0.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 0.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 0.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 0.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 0.000000
+LAIK 1/3 - new partitioning 'partng-4': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-4' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e53f80
+LAIK 1/3 - transition (none) => partng-4:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e53f80 0: 0.000000
+LAIK 1/3 - new partitioning 'partng-5': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-5' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e54de0
+LAIK 1/3 - transition partng-4 => partng-5:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557627e53f80/0x557627e54de0
+Sum at iter  0: 1330.000000
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80e7f80)
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80e8de0 0: 1330.000000
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x562fa80e9a90
+LAIK 2/3 - transition partng-3 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x562fa80e6ef0)
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 64.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 51.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 36.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 19.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80e9a90 0: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80e9a90 1: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80e9a90 2: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80e9a90 3: 0.000000
+LAIK 2/3 - new partitioning 'partng-6': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-6' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x562fa80ea840
+LAIK 2/3 - transition partng-0 => partng-6:
+  local: [16-19]
+  send: [16-19] => T0, [16-19] => T1
+  recv: T0 => [0-10], T1 => [11-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x562fa80ea840
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b7451a1d0)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b7451cf30 0: 1330.000000
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x555b7451dea0
+LAIK 0/3 - transition partng-3 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x555b7451b060)
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 19.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 36.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 51.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 64.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 75.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 84.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 91.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 96.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 99.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 100.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 0: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 1: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 2: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 3: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 4: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 5: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 6: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 7: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 8: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 9: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b7451dea0 10: 0.000000
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e53f80)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e54de0 0: 1330.000000
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x557627e55a90
+LAIK 1/3 - transition partng-3 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x557627e52ef0)
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 99.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 96.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 91.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 84.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 75.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e55a90 0: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e55a90 1: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e55a90 2: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e55a90 3: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e55a90 4: 0.000000
+LAIK 1/3 - new partitioning 'partng-6': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-6' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557627e56840
+LAIK 1/3 - transition partng-0 => partng-6:
+  local: [11-15]
+  send: [11-15] => T0, [11-15] => T2
+  recv: T0 => [0-10], T2 => [16-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x557627e56840
+LAIK 0/3 - new partitioning 'partng-6': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-6' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x555b7451ec80
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [0-4], elemsize 8, from base 0x557627e55a90
+LAIK 1/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x557627e56840
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-4], elemsize 8, from base 0x557627e55a90
+LAIK 1/3 - copy map for 'inp': 5 x 8 from [0 global [11 to [11, 0x557627e55a90 => 0x557627e56898
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x557627e55a90)
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 0: 0.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 1: 0.014286
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 2: 0.027068
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 3: 0.038346
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 4: 0.048120
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 5: 0.056391
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 6: 0.063158
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 7: 0.068421
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 8: 0.072180
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 9: 0.074436
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 10: 0.075188
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 11: 0.074436
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 12: 0.072180
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 13: 0.068421
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 14: 0.063158
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 15: 0.056391
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 16: 0.048120
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 17: 0.038346
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 18: 0.027068
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e56840 19: 0.014286
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 99.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 96.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 91.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 84.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 75.000000
+LAIK 1/3 - new partitioning 'partng-7': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-7' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e57670
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x562fa80ea840
+LAIK 2/3 - MPI Send (data 'inp') to T1: local [0-3], elemsize 8, from base 0x562fa80e9a90
+LAIK 2/3 - MPI Send (data 'inp') to T0: local [0-3], elemsize 8, from base 0x562fa80e9a90
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [16, 0x562fa80e9a90 => 0x562fa80ea8c0
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x562fa80e9a90)
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 0: 0.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 1: 0.014286
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 2: 0.027068
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 3: 0.038346
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 4: 0.048120
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 5: 0.056391
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 6: 0.063158
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 7: 0.068421
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 8: 0.072180
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 9: 0.074436
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 10: 0.075188
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 11: 0.074436
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 12: 0.072180
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 13: 0.068421
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 14: 0.063158
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 15: 0.056391
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 16: 0.048120
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 17: 0.038346
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 18: 0.027068
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80ea840 19: 0.014286
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 64.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 51.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 36.000000
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 19.000000
+LAIK 2/3 - new partitioning 'partng-7': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-7' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80eb670
+LAIK 2/3 - transition partng-5 => partng-7:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80e8de0)
+LAIK 0/3 - transition partng-0 => partng-6:
+  local: [0-10]
+  send: [0-10] => T1, [0-10] => T2
+  recv: T1 => [11-15], T2 => [16-19]
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-10], elemsize 8, from base 0x555b7451dea0
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-10], elemsize 8, from base 0x555b7451dea0
+LAIK 0/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x555b7451ec80
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x555b7451ec80
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x555b7451dea0 => 0x555b7451ec80
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x555b7451dea0)
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 0: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 1: 0.014286
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 2: 0.027068
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 3: 0.038346
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 4: 0.048120
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 5: 0.056391
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 6: 0.063158
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 7: 0.068421
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 8: 0.072180
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 9: 0.074436
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 10: 0.075188
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 11: 0.074436
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 12: 0.072180
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 13: 0.068421
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 14: 0.063158
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 15: 0.056391
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 16: 0.048120
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 17: 0.038346
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 18: 0.027068
+LAIK 0/3 - map_def1 (data inp) base: 0x555b7451ec80 19: 0.014286
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 19.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 36.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 51.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 64.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 75.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 84.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 91.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 96.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 99.000000
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80eb670 0: 0.000000
+LAIK 2/3 - new partitioning 'partng-8': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-8' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - transition partng-5 => partng-7:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e54de0)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e57670 0: 0.000000
+LAIK 1/3 - new partitioning 'partng-8': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-8' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 100.000000
+LAIK 0/3 - new partitioning 'partng-7': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-7' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b7451fb10
+LAIK 0/3 - transition partng-5 => partng-7:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b7451cf30)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b7451fb10 0: 0.000000
+LAIK 0/3 - new partitioning 'partng-8': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-8' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b7451dee0
+LAIK 0/3 - transition partng-7 => partng-8:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x555b7451fb10/0x555b7451dee0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b7451fb10)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b7451dee0 0: 54.900000
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x555b745213f0
+LAIK 0/3 - transition partng-6 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x555b7451ec80)
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 0.257143
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 0.703008
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 1.275188
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 1.917293
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 2.578947
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 3.215789
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 3.789474
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 4.267669
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 4.624060
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 0: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 1: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 2: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 3: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 4: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 5: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 6: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 7: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 8: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 9: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b745213f0 10: 0.000000
+LAIK 0/3 - new partitioning 'partng-9': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-9' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e58430
+LAIK 1/3 - transition partng-7 => partng-8:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557627e57670/0x557627e58430
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e57670)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e58430 0: 54.900000
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x557627e58f90
+LAIK 1/3 - transition partng-6 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x557627e56840)
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 4.838346
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 4.896241
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 4.789474
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 4.515789
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 4.078947
+LAIK 1/3 - map_def (data inp) base: 0x557627e58f90 0: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e58f90 1: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e58f90 2: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e58f90 3: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e58f90 4: 0.000000
+LAIK 1/3 - new partitioning 'partng-9': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-9' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557627e59d40
+LAIK 1/3 - transition partng-0 => partng-9:
+  local: [11-15]
+  send: [11-15] => T0, [11-15] => T2
+  recv: T0 => [0-10], T2 => [16-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x557627e59d40
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80ec430
+LAIK 2/3 - transition partng-7 => partng-8:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x562fa80eb670/0x562fa80ec430
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80eb670)
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80ec430 0: 54.900000
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x562fa80ecf90
+LAIK 2/3 - transition partng-6 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x562fa80ea840)
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 3.488722
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 2.760902
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 1.917293
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 0.985714
+LAIK 2/3 - map_def (data inp) base: 0x562fa80ecf90 0: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80ecf90 1: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80ecf90 2: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80ecf90 3: 0.000000
+LAIK 2/3 - new partitioning 'partng-9': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-9' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x562fa80edd40
+LAIK 2/3 - transition partng-0 => partng-9:
+  local: [16-19]
+  send: [16-19] => T0, [16-19] => T1
+  recv: T0 => [0-10], T1 => [11-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x562fa80edd40
+Sum at iter  1: 54.900000
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x555b745221d0
+LAIK 0/3 - transition partng-0 => partng-9:
+  local: [0-10]
+  send: [0-10] => T1, [0-10] => T2
+  recv: T1 => [11-15], T2 => [16-19]
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-10], elemsize 8, from base 0x555b745213f0
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-10], elemsize 8, from base 0x555b745213f0
+LAIK 0/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x555b745221d0
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x555b745221d0
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x555b745213f0 => 0x555b745221d0
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x555b745213f0)
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 0: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 1: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 2: 0.004684
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 3: 0.012805
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 4: 0.023227
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 5: 0.034923
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 6: 0.046975
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 7: 0.058575
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 8: 0.069025
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 9: 0.077735
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 10: 0.084227
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 11: 0.088130
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 12: 0.089185
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 13: 0.087240
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 14: 0.082255
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 15: 0.074298
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 16: 0.063547
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 17: 0.050290
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 18: 0.034923
+LAIK 0/3 - map_def1 (data inp) base: 0x555b745221d0 19: 0.017955
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 0.000000
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [0-4], elemsize 8, from base 0x557627e58f90
+LAIK 1/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x557627e59d40
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-4], elemsize 8, from base 0x557627e58f90
+LAIK 1/3 - copy map for 'inp': 5 x 8 from [0 global [11 to [11, 0x557627e58f90 => 0x557627e59d98
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x557627e58f90)
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 0: 0.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 1: 0.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 2: 0.004684
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 3: 0.012805
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 4: 0.023227
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 5: 0.034923
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 6: 0.046975
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 7: 0.058575
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 8: 0.069025
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 9: 0.077735
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 10: 0.084227
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 11: 0.088130
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 12: 0.089185
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 13: 0.087240
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 14: 0.082255
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 15: 0.074298
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 16: 0.063547
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 17: 0.050290
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 18: 0.034923
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e59d40 19: 0.017955
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 4.838346
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 4.896241
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 4.789474
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 4.515789
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 4.078947
+LAIK 1/3 - new partitioning 'partng-10': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-10' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e5abd0
+LAIK 1/3 - transition partng-8 => partng-10:
+  init: sum[0-0]
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x562fa80edd40
+LAIK 2/3 - MPI Send (data 'inp') to T1: local [0-3], elemsize 8, from base 0x562fa80ecf90
+LAIK 2/3 - MPI Send (data 'inp') to T0: local [0-3], elemsize 8, from base 0x562fa80ecf90
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [16, 0x562fa80ecf90 => 0x562fa80eddc0
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x562fa80ecf90)
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 0: 0.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 1: 0.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 2: 0.004684
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 3: 0.012805
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 4: 0.023227
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 5: 0.034923
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 6: 0.046975
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 7: 0.058575
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 8: 0.069025
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 9: 0.077735
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 10: 0.084227
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 11: 0.088130
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 12: 0.089185
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 13: 0.087240
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 14: 0.082255
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 15: 0.074298
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 16: 0.063547
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 17: 0.050290
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 18: 0.034923
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80edd40 19: 0.017955
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 3.488722
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 2.760902
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 1.917293
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 0.985714
+LAIK 2/3 - new partitioning 'partng-10': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-10' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80eebd0
+LAIK 2/3 - transition partng-8 => partng-10:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80ec430)
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80eebd0 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 0.257143
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 0.703008
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 1.275188
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 1.917293
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 2.578947
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 3.215789
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 3.789474
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 4.267669
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 4.624060
+LAIK 0/3 - new partitioning 'partng-10': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-10' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b74521410
+LAIK 0/3 - transition partng-8 => partng-10:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b7451dee0)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b74521410 0: 0.000000
+LAIK 0/3 - new partitioning 'partng-11': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-11' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b74523de0
+LAIK 0/3 - transition partng-10 => partng-11:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x555b74521410/0x555b74523de0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b74521410)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b74523de0 0: 40.423107
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x555b74524940
+LAIK 0/3 - transition partng-9 => partng-0: (nothing)
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x555b745221d0)
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 0.079625
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 0.279825
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 0.610748
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 1.058959
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 1.593999
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 2.174288
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e58430)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e5abd0 0: 0.000000
+LAIK 1/3 - new partitioning 'partng-11': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-11' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e5b990
+LAIK 1/3 - transition partng-10 => partng-11:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557627e5abd0/0x557627e5b990
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e5abd0)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e5b990 0: 40.423107
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x557627e5c4f0
+LAIK 1/3 - transition partng-9 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x557627e59d40)
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 3.709602
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 4.002465
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 4.126450
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 4.060397
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 3.794938
+LAIK 1/3 - map_def (data inp) base: 0x557627e5c4f0 0: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5c4f0 1: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5c4f0 2: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5c4f0 3: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5c4f0 4: 0.000000
+LAIK 1/3 - new partitioning 'partng-12': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-12' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 1/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x557627e5d2a0
+LAIK 1/3 - transition partng-0 => partng-12:
+  local: [11-15]
+  send: [11-15] => T0, [11-15] => T2
+  recv: T0 => [0-10], T2 => [16-19]
+LAIK 1/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x557627e5d2a0
+LAIK 2/3 - new partitioning 'partng-11': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-11' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80ef990
+LAIK 2/3 - transition partng-10 => partng-11:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x562fa80eebd0/0x562fa80ef990
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80eebd0)
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80ef990 0: 40.423107
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x562fa80f04f0
+LAIK 2/3 - transition partng-9 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x562fa80edd40)
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 3.333142
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 2.690497
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 1.894244
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 0.982045
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f04f0 0: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f04f0 1: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f04f0 2: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f04f0 3: 0.000000
+LAIK 2/3 - new partitioning 'partng-12': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-12' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 2/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x562fa80f12a0
+LAIK 2/3 - transition partng-0 => partng-12:
+  local: [16-19]
+  send: [16-19] => T0, [16-19] => T1
+  recv: T0 => [0-10], T1 => [11-15]
+LAIK 2/3 - MPI Recv (data 'inp') from T0: local [0-10], elemsize 8, to base 0x562fa80f12a0
+Sum at iter  2: 40.423107
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 2.752373
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 3.279510
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 0: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 1: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 2: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 3: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 4: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 5: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 6: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 7: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 8: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 9: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74524940 10: 0.000000
+LAIK 0/3 - new partitioning 'partng-12': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-12' (group 0) updated: 0:[0-19], 1:[0-19], 2:[0-19]
+LAIK 0/3 - new map for 'inp'/0: [0+20, elemsize 8, base 0x555b74525720
+LAIK 0/3 - transition partng-0 => partng-12:
+  local: [0-10]
+  send: [0-10] => T1, [0-10] => T2
+  recv: T1 => [11-15], T2 => [16-19]
+LAIK 0/3 - MPI Send (data 'inp') to T1: local [0-10], elemsize 8, from base 0x555b74524940
+LAIK 0/3 - MPI Send (data 'inp') to T2: local [0-10], elemsize 8, from base 0x555b74524940
+LAIK 0/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x555b74525720
+LAIK 0/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x555b74525720
+LAIK 0/3 - copy map for 'inp': 11 x 8 from [0 global [0 to [0, 0x555b74524940 => 0x555b74525720
+LAIK 0/3 - free map for 'inp'/0 (count 11, base 0x555b74524940)
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 0: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 1: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 2: 0.000000
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 3: 0.001970
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 4: 0.006922
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 5: 0.015109
+LAIK 1/3 - MPI Send (data 'inp') to T2: local [0-4], elemsize 8, from base 0x557627e5c4f0
+LAIK 1/3 - MPI Recv (data 'inp') from T2: local [16-19], elemsize 8, to base 0x557627e5d2a0
+LAIK 1/3 - MPI Send (data 'inp') to T0: local [0-4], elemsize 8, from base 0x557627e5c4f0
+LAIK 1/3 - copy map for 'inp': 5 x 8 from [0 global [11 to [11, 0x557627e5c4f0 => 0x557627e5d2f8
+LAIK 1/3 - free map for 'inp'/0 (count 5, base 0x557627e5c4f0)
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 0: 0.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 1: 0.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 2: 0.000000
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 3: 0.001970
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 4: 0.006922
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 5: 0.015109
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 6: 0.026197
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 7: 0.039433
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 8: 0.053788
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 9: 0.068089
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 10: 0.081130
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 11: 0.091769
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 12: 0.099014
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 13: 0.102081
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 14: 0.100447
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 15: 0.093880
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 16: 0.082456
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 17: 0.066558
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 18: 0.046860
+LAIK 1/3 - map_def1 (data inp) base: 0x557627e5d2a0 19: 0.024294
+LAIK 2/3 - MPI Recv (data 'inp') from T1: local [11-15], elemsize 8, to base 0x562fa80f12a0
+LAIK 2/3 - MPI Send (data 'inp') to T1: local [0-3], elemsize 8, from base 0x562fa80f04f0
+LAIK 2/3 - MPI Send (data 'inp') to T0: local [0-3], elemsize 8, from base 0x562fa80f04f0
+LAIK 2/3 - copy map for 'inp': 4 x 8 from [0 global [16 to [16, 0x562fa80f04f0 => 0x562fa80f1320
+LAIK 2/3 - free map for 'inp'/0 (count 4, base 0x562fa80f04f0)
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 0: 0.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 1: 0.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 2: 0.000000
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 3: 0.001970
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 4: 0.006922
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 5: 0.015109
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 6: 0.026197
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 7: 0.039433
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 8: 0.053788
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 9: 0.068089
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 10: 0.081130
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 11: 0.091769
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 12: 0.099014
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 13: 0.102081
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 14: 0.100447
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 15: 0.093880
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 16: 0.082456
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 17: 0.066558
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 18: 0.046860
+LAIK 2/3 - map_def1 (data inp) base: 0x562fa80f12a0 19: 0.024294
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 3.333142
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 6: 0.026197
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 7: 0.039433
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 8: 0.053788
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 9: 0.068089
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 10: 0.081130
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 11: 0.091769
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 12: 0.099014
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 13: 0.102081
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 14: 0.100447
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 15: 0.093880
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 16: 0.082456
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 17: 0.066558
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 18: 0.046860
+LAIK 0/3 - map_def1 (data inp) base: 0x555b74525720 19: 0.024294
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 0.079625
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 0.279825
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 0.610748
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 1.058959
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 1.593999
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 2.174288
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 2.752373
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 3.279510
+LAIK 0/3 - new partitioning 'partng-13': type all, data flow sumout, group 0
+LAIK 0/3 - partitioning 'partng-13' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b745265b0
+LAIK 0/3 - transition partng-11 => partng-13:
+  init: sum[0-0]
+LAIK 0/3 - init map for 'data-2': 1 x at [0
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b74523de0)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b745265b0 0: 0.000000
+LAIK 0/3 - new partitioning 'partng-14': type all, data flow copyin, group 0
+LAIK 0/3 - partitioning 'partng-14' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 0/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x555b74524980
+LAIK 0/3 - transition partng-13 => partng-14:
+  reduction: sum[0-0] => all (-1)
+LAIK 0/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x555b745265b0/0x555b74524980
+LAIK 0/3 - free map for 'data-2'/0 (count 1, base 0x555b745265b0)
+LAIK 0/3 - map_def1 (data data-2) base: 0x555b74524980 0: 30.497045
+LAIK 0/3 - new map for 'inp'/0: [0+11, elemsize 8, base 0x555b74527e90
+LAIK 0/3 - transition partng-12 => partng-0: (nothing)
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 2.690497
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 1.894244
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 0.982045
+LAIK 2/3 - new partitioning 'partng-13': type all, data flow sumout, group 0
+LAIK 2/3 - partitioning 'partng-13' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80f2130
+LAIK 2/3 - transition partng-11 => partng-13:
+  init: sum[0-0]
+LAIK 2/3 - init map for 'data-2': 1 x at [0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80ef990)
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80f2130 0: 0.000000
+LAIK 2/3 - new partitioning 'partng-14': type all, data flow copyin, group 0
+LAIK 2/3 - partitioning 'partng-14' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 2/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x562fa80f2ef0
+LAIK 2/3 - transition partng-13 => partng-14:
+  reduction: sum[0-0] => all (-1)
+LAIK 2/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x562fa80f2130/0x562fa80f2ef0
+LAIK 2/3 - free map for 'data-2'/0 (count 1, base 0x562fa80f2130)
+LAIK 2/3 - map_def1 (data data-2) base: 0x562fa80f2ef0 0: 30.497045
+LAIK 2/3 - new map for 'inp'/0: [16+4, elemsize 8, base 0x562fa80f3a50
+LAIK 2/3 - transition partng-12 => partng-0: (nothing)
+LAIK 2/3 - free map for 'inp'/0 (count 20, base 0x562fa80f12a0)
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 0: 3.119323
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 1: 2.586861
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 2: 1.857691
+LAIK 2/3 - map_def (data res) base: 0x562fa80e51f0 3: 0.975706
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f3a50 0: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f3a50 1: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f3a50 2: 0.000000
+LAIK 2/3 - map_def (data inp) base: 0x562fa80f3a50 3: 0.000000
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 3.709602
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 4.002465
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 4.126450
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 4.060397
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 3.794938
+LAIK 1/3 - new partitioning 'partng-13': type all, data flow sumout, group 0
+LAIK 1/3 - partitioning 'partng-13' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e5e130
+LAIK 1/3 - transition partng-11 => partng-13:
+  init: sum[0-0]
+LAIK 1/3 - init map for 'data-2': 1 x at [0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e5b990)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e5e130 0: 0.000000
+LAIK 1/3 - new partitioning 'partng-14': type all, data flow copyin, group 0
+LAIK 1/3 - partitioning 'partng-14' (group 0) updated: 0:[0-0], 1:[0-0], 2:[0-0]
+LAIK 1/3 - new map for 'data-2'/0: [0+1, elemsize 8, base 0x557627e5eef0
+LAIK 1/3 - transition partng-13 => partng-14:
+  reduction: sum[0-0] => all (-1)
+LAIK 1/3 - MPI Reduce (data 'data-2'): from 0, to 1, elemsize 8, base from/to 0x557627e5e130/0x557627e5eef0
+LAIK 1/3 - free map for 'data-2'/0 (count 1, base 0x557627e5e130)
+LAIK 1/3 - map_def1 (data data-2) base: 0x557627e5eef0 0: 30.497045
+LAIK 1/3 - new map for 'inp'/0: [11+5, elemsize 8, base 0x557627e5fa50
+LAIK 1/3 - transition partng-12 => partng-0: (nothing)
+LAIK 1/3 - free map for 'inp'/0 (count 20, base 0x557627e5d2a0)
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 0: 2.633740
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 1: 3.075257
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 2: 3.383950
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 3: 3.513017
+LAIK 1/3 - map_def (data res) base: 0x557627e511f0 4: 3.429751
+LAIK 1/3 - map_def (data inp) base: 0x557627e5fa50 0: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5fa50 1: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5fa50 2: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5fa50 3: 0.000000
+LAIK 1/3 - map_def (data inp) base: 0x557627e5fa50 4: 0.000000
+Sum at iter  3: 30.497045
+LAIK 0/3 - free map for 'inp'/0 (count 20, base 0x555b74525720)
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 0: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 1: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 2: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 3: 0.000000
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 4: 0.031517
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 5: 0.133383
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 6: 0.336015
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 7: 0.652574
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 8: 1.075570
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 9: 1.577610
+LAIK 0/3 - map_def (data res) base: 0x555b74519200 10: 2.115082
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 0: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 1: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 2: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 3: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 4: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 5: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 6: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 7: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 8: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 9: 0.000000
+LAIK 0/3 - map_def (data inp) base: 0x555b74527e90 10: 0.000000
+LAIK 0/3 - BEFORE: 
+LAIK 0/3 - Border 0(for 0): 0 11
+LAIK 0/3 - Border 1(for 1): 11 16
+LAIK 0/3 - Border 2(for 2): 16 20
+spmv2: src/laik-space.c:469: appendSlice: Assertion `a->count < a->capacity' failed.
+spmv2: src/laik-space.c:469: appendSlice: Assertion `a->count < a->capacity' failed.
+[simon-ThinkPad-T460p:18138] *** Process received signal ***
+spmv2: src/laik-space.c:469: appendSlice: Assertion `a->count < a->capacity' failed.
+[simon-ThinkPad-T460p:18137] *** Process received signal ***
+[simon-ThinkPad-T460p:18136] *** Process received signal ***
+[simon-ThinkPad-T460p:18136] Signal: Aborted (6)
+[simon-ThinkPad-T460p:18136] Signal code:  (-6)
+[simon-ThinkPad-T460p:18137] Signal: Aborted (6)
+[simon-ThinkPad-T460p:18137] Signal code:  (-6)
+[simon-ThinkPad-T460p:18138] Signal: Aborted (6)
+[simon-ThinkPad-T460p:18138] Signal code:  (-6)
+[simon-ThinkPad-T460p:18137] [ 0] [simon-ThinkPad-T460p:18136] [ 0] [simon-ThinkPad-T460p:18138] [ 0] /lib/x86_64-linux-gnu/libpthread.so.0(+0x11670)[0x7f4ca978e670]
+[simon-ThinkPad-T460p:18137] [ 1] /lib/x86_64-linux-gnu/libpthread.so.0(+0x11670)[0x7effd972c670]
+[simon-ThinkPad-T460p:18138] [ 1] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x9f)[0x7effd938977f]
+[simon-ThinkPad-T460p:18138] [ 2] /lib/x86_64-linux-gnu/libpthread.so.0(+0x11670)[0x7f5817983670]
+[simon-ThinkPad-T460p:18136] [ 1] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x9f)[0x7f58175e077f]
+[simon-ThinkPad-T460p:18136] [ 2] /lib/x86_64-linux-gnu/libc.so.6(gsignal+0x9f)[0x7f4ca93eb77f]
+[simon-ThinkPad-T460p:18137] [ 2] /lib/x86_64-linux-gnu/libc.so.6(abort+0x16a)[0x7effd938b37a]
+[simon-ThinkPad-T460p:18138] [ 3] /lib/x86_64-linux-gnu/libc.so.6(+0x2db47)[0x7effd9381b47]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x16a)[0x7f58175e237a]
+[simon-ThinkPad-T460p:18136] [ 3] /lib/x86_64-linux-gnu/libc.so.6(+0x2db47)[0x7f58175d8b47]
+[simon-ThinkPad-T460p:18136] [ 4] /lib/x86_64-linux-gnu/libc.so.6(abort+0x16a)[0x7f4ca93ed37a]
+[simon-ThinkPad-T460p:18137] [ 3] /lib/x86_64-linux-gnu/libc.so.6(+0x2db47)[0x7f4ca93e3b47]
+[simon-ThinkPad-T460p:18137] [ 4] [simon-ThinkPad-T460p:18138] [ 4] /lib/x86_64-linux-gnu/libc.so.6(+0x2dbf2)[0x7f58175d8bf2]
+[simon-ThinkPad-T460p:18136] [ 5] ./examples/spmv2(+0x4787)[0x555b72c7d787]
+[simon-ThinkPad-T460p:18136] [ 6] ./examples/spmv2(+0x70dc)[0x555b72c800dc]
+[simon-ThinkPad-T460p:18136] [ 7] ./examples/spmv2(+0x52b8)[0x555b72c7e2b8]
+[simon-ThinkPad-T460p:18136] [ 8] ./examples/spmv2(+0x8d93)[0x555b72c81d93]
+[simon-ThinkPad-T460p:18136] [ 9] ./examples/spmv2(+0x2381)[0x555b72c7b381]
+[simon-ThinkPad-T460p:18136] [10] ./examples/spmv2(+0x1bfe)[0x555b72c7abfe]
+[simon-ThinkPad-T460p:18136] [11] /lib/x86_64-linux-gnu/libc.so.6(+0x2dbf2)[0x7f4ca93e3bf2]
+[simon-ThinkPad-T460p:18137] [ 5] ./examples/spmv2(+0x4787)[0x557625d0c787]
+[simon-ThinkPad-T460p:18137] [ 6] ./examples/spmv2(+0x70dc)[0x557625d0f0dc]
+[simon-ThinkPad-T460p:18137] [ 7] ./examples/spmv2(+0x52b8)[0x557625d0d2b8]
+[simon-ThinkPad-T460p:18137] [ 8] ./examples/spmv2(+0x8d93)[0x557625d10d93]
+[simon-ThinkPad-T460p:18137] [ 9] ./examples/spmv2(+0x2381)[0x557625d0a381]
+[simon-ThinkPad-T460p:18137] [10] ./examples/spmv2(+0x1bfe)[0x557625d09bfe]
+[simon-ThinkPad-T460p:18137] [11] /lib/x86_64-linux-gnu/libc.so.6(+0x2dbf2)[0x7effd9381bf2]
+[simon-ThinkPad-T460p:18138] [ 5] ./examples/spmv2(+0x4787)[0x562fa6e33787]
+[simon-ThinkPad-T460p:18138] [ 6] ./examples/spmv2(+0x70dc)[0x562fa6e360dc]
+[simon-ThinkPad-T460p:18138] [ 7] ./examples/spmv2(+0x52b8)[0x562fa6e342b8]
+[simon-ThinkPad-T460p:18138] [ 8] ./examples/spmv2(+0x8d93)[0x562fa6e37d93]
+[simon-ThinkPad-T460p:18138] [ 9] ./examples/spmv2(+0x2381)[0x562fa6e31381]
+[simon-ThinkPad-T460p:18138] [10] ./examples/spmv2(+0x1bfe)[0x562fa6e30bfe]
+[simon-ThinkPad-T460p:18138] [11] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1)[0x7f4ca93d63f1]
+[simon-ThinkPad-T460p:18137] [12] ./examples/spmv2(+0x103a)[0x557625d0903a]
+[simon-ThinkPad-T460p:18137] *** End of error message ***
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1)[0x7f58175cb3f1]
+[simon-ThinkPad-T460p:18136] [12] ./examples/spmv2(+0x103a)[0x555b72c7a03a]
+[simon-ThinkPad-T460p:18136] *** End of error message ***
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1)[0x7effd93743f1]
+[simon-ThinkPad-T460p:18138] [12] ./examples/spmv2(+0x103a)[0x562fa6e3003a]
+[simon-ThinkPad-T460p:18138] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node simon-ThinkPad-T460p exited on signal 6 (Aborted).
+--------------------------------------------------------------------------

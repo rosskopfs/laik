@@ -201,6 +201,8 @@ laik_new_spacecoupled_partitioning(Laik_Partitioning* base,
                                    Laik_Space* s, int from, int to,
                                    Laik_PartitionType pt,
                                    Laik_DataFlow flow);
+// Create a copy of a partitioning
+Laik_Partitioning* laik_clone_partitioning(const Laik_Partitioning*);
 
 // free a partitioning with related resources
 void laik_free_partitioning(Laik_Partitioning* p);

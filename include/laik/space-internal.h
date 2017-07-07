@@ -25,6 +25,7 @@
 #include <stdbool.h>
 
 typedef struct _Laik_BlockPartitioner Laik_BlockPartitioner;
+typedef struct _Laik_IncrementalPartitioner Laik_IncrementalPartitioner;
 typedef struct _Laik_BorderArray Laik_BorderArray;
 
 // internal as depending on communication backend
@@ -51,6 +52,7 @@ struct _Laik_Space {
 struct _Laik_Partitioner {
     Laik_PartitionType type;
     Laik_Partitioning* partitioning; // partitioning to work on
+    size_t size;
     void (*run)(Laik_Partitioner*, Laik_BorderArray*);
 };
 
@@ -68,6 +70,24 @@ struct _Laik_BlockPartitioner {
     int cycles;
 };
 Laik_Partitioner* laik_newBlockPartitioner(Laik_Partitioning* p);
+
+
+struct _Laik_IncrementalPartitioner {
+    struct _Laik_Partitioner base;
+
+    // weighted partitioning (Block) uses callbacks
+    Laik_GetIdxWeight_t getIdxW;
+    void* idxUserData;
+    Laik_GetTaskWeight_t getTaskW;
+    void* taskUserData;
+
+    // how many cycles (results in so many slics per task)
+    int cycles;
+    
+    // Backup of previous borders
+    Laik_BorderArray* prev;
+};
+Laik_Partitioner* laik_newIncrementalPartitioner(Laik_Partitioning* p);
 
 
 // the output of a partitioner is a Laik_BorderArray
